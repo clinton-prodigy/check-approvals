@@ -52,5 +52,5 @@ check_review_state() {
 if [[ "$action" == "submitted" ]]; then
   check_review_state
 else
-  echo "Ignoring event ${action}/${state}"
+  echo "Ignoring event"
 fi
