@@ -35,14 +35,14 @@ check_review_state() {
     rState=$(echo "$review" | jq --raw-output '.state')
     
     if [[ "$rState" == "CHANGES_REQUESTED" ]]; then
-      echo '::set-output name=APPROVAL_STATE::CHANGES_REQUESTED'
+      echo "approval_state=CHANGES_REQUESTED" >> $GITHUB_ENV
       break
     elif [[ "$rState" == "APPROVED" ]]; then
       approvals=$((approvals+1))
     fi
     
     if [[ approvals -ge ${APPROVALS} ]]; then
-      echo '::set-output name=APPROVAL_STATE::APPROVED'
+            echo "approval_state=APPROVED" >> $GITHUB_ENV
       break
     fi
 
