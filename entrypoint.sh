@@ -42,7 +42,7 @@ check_review_state() {
     fi
     
     if [[ approvals -ge ${APPROVALS} ]]; then
-            echo "approval_state=APPROVED" >> $GITHUB_ENV
+      echo "approval_state=APPROVED" >> $GITHUB_ENV
       break
     fi
 
